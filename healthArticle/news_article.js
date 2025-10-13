@@ -1,15 +1,15 @@
 var xhr = new XMLHttpRequest();
-var url = './health_article.json';
+var url = './news_article.json';
 xhr.open('GET', url, true);
 xhr.responseType = 'json';
 xhr.onload = function() {
-var articles = xhr.response.articles;
-var articlesDiv = document.getElementById('articles');
+var news_articles = xhr.response.articles;
+var newsArticlesDiv = document.getElementById('news_articles');
 
 
-  articles.forEach(function(article) {
-      var articleDiv = document.createElement('div');
-      articleDiv.classList.add('article');
+  news_articles.forEach(function(article) {
+      var newsArticleDiv = document.createElement('div');
+      newsArticleDiv.classList.add('article');
 
       var title = document.createElement('h2');
       title.textContent = article.title;
@@ -37,18 +37,18 @@ var articlesDiv = document.getElementById('articles');
         benefitsList.appendChild(listItem);
       });
 
-      articleDiv.appendChild(title);
-      articleDiv.appendChild(description);
-      articleDiv.appendChild(waysHeader);
-      articleDiv.appendChild(waysList);
-      articleDiv.appendChild(benefitsHeader);
-      articleDiv.appendChild(benefitsList);
+      newsArticleDiv.appendChild(title);
+      newsArticleDiv.appendChild(description);
+      newsArticleDiv.appendChild(waysHeader);
+      newsArticleDiv.appendChild(waysList);
+      newsArticleDiv.appendChild(benefitsHeader);
+      newsArticleDiv.appendChild(benefitsList);
 
-      articlesDiv.appendChild(articleDiv);
+      newsArticlesDiv.appendChild(newsArticleDiv);
     });
 
-    var articleDiv = document.createElement('div');
-    articleDiv.classList.add('article');
-    articleDiv.appendChild(title);
+    var newsArticleDiv = document.createElement('div');
+    newsArticleDiv.classList.add('article');
+    newsArticleDiv.appendChild(title);
 }
     xhr.send();
